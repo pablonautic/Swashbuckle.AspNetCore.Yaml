@@ -44,6 +44,14 @@ namespace Swashbuckle.AspNetCore.Yaml.Example
                     }
                 });
 
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    In = "header",
+                    Description = "Please, put your token here.",
+                    Name = "Authorization",
+                    Type = "apiKey"
+                });
+
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetEntryAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
